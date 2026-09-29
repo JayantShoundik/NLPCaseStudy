@@ -1,0 +1,29 @@
+{
+  "project": "Market Basket Analysis with NLP & Association Mining",
+  "dataset_statistics": {
+    "total_transactions": 50000,
+    "train_transactions": 40000,
+    "test_transactions": 10000,
+    "unique_products": 74,
+    "customer_reviews": 15000
+  },
+  "association_mining": {
+    "min_support": 0.015,
+    "min_lift": 1.2,
+    "total_rules_mined": 7878,
+    "top_rule": {
+      "antecedent": "Fragrant Thai Jasmine Rice (5 lb), Thai Red Curry Cooking Paste",
+      "consequent": "Organic Extra Firm Tofu, Organic Unsweetened Coconut Milk",
+      "lift": 16.183,
+      "confidence": 0.5818,
+      "support": 0.0211
+    }
+  },
+  "holdout_evaluation_hit_rate_at_5": {
+    "Popularity Baseline": 0.396,
+    "Pure Association Rules (Apriori/FP-Growth)": 0.803,
+    "Pure NLP Semantic Similarity": 0.679,
+    "Hybrid (Association + NLP + Reviews)": 0.813
+  },
+  "total_execution_time_seconds": 28.94
+}

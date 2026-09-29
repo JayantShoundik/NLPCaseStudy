@@ -1,0 +1,74 @@
+[
+  {
+    "Model": "Popularity Baseline",
+    "K": 3,
+    "Hit Rate@K": 0.317,
+    "Precision@K": 0.158,
+    "Recall@K": 0.0976,
+    "MRR": 0.2468,
+    "Eval Time (s)": 0.0
+  },
+  {
+    "Model": "Popularity Baseline",
+    "K": 5,
+    "Hit Rate@K": 0.396,
+    "Precision@K": 0.1572,
+    "Recall@K": 0.1613,
+    "MRR": 0.2661,
+    "Eval Time (s)": 0.0
+  },
+  {
+    "Model": "Pure Association Rules (Apriori/FP-Growth)",
+    "K": 3,
+    "Hit Rate@K": 0.714,
+    "Precision@K": 0.4583,
+    "Recall@K": 0.3127,
+    "MRR": 0.6,
+    "Eval Time (s)": 2.19
+  },
+  {
+    "Model": "Pure Association Rules (Apriori/FP-Growth)",
+    "K": 5,
+    "Hit Rate@K": 0.803,
+    "Precision@K": 0.45,
+    "Recall@K": 0.5053,
+    "MRR": 0.6205,
+    "Eval Time (s)": 2.19
+  },
+  {
+    "Model": "Pure NLP Semantic Similarity",
+    "K": 3,
+    "Hit Rate@K": 0.564,
+    "Precision@K": 0.2847,
+    "Recall@K": 0.1829,
+    "MRR": 0.493,
+    "Eval Time (s)": 4.01
+  },
+  {
+    "Model": "Pure NLP Semantic Similarity",
+    "K": 5,
+    "Hit Rate@K": 0.679,
+    "Precision@K": 0.242,
+    "Recall@K": 0.2624,
+    "MRR": 0.52,
+    "Eval Time (s)": 4.01
+  },
+  {
+    "Model": "Hybrid (Association + NLP + Reviews)",
+    "K": 3,
+    "Hit Rate@K": 0.727,
+    "Precision@K": 0.469,
+    "Recall@K": 0.3189,
+    "MRR": 0.6257,
+    "Eval Time (s)": 14.89
+  },
+  {
+    "Model": "Hybrid (Association + NLP + Reviews)",
+    "K": 5,
+    "Hit Rate@K": 0.813,
+    "Precision@K": 0.4222,
+    "Recall@K": 0.4682,
+    "MRR": 0.6453,
+    "Eval Time (s)": 14.89
+  }
+]

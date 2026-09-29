@@ -1,0 +1,9 @@
+Model,K,Hit Rate@K,Precision@K,Recall@K,MRR,Eval Time (s)
+Popularity Baseline,3,0.317,0.158,0.0976,0.2468,0.0
+Popularity Baseline,5,0.396,0.1572,0.1613,0.2661,0.0
+Pure Association Rules (Apriori/FP-Growth),3,0.714,0.4583,0.3127,0.6,2.19
+Pure Association Rules (Apriori/FP-Growth),5,0.803,0.45,0.5053,0.6205,2.19
+Pure NLP Semantic Similarity,3,0.564,0.2847,0.1829,0.493,4.01
+Pure NLP Semantic Similarity,5,0.679,0.242,0.2624,0.52,4.01
+Hybrid (Association + NLP + Reviews),3,0.727,0.469,0.3189,0.6257,14.89
+Hybrid (Association + NLP + Reviews),5,0.813,0.4222,0.4682,0.6453,14.89

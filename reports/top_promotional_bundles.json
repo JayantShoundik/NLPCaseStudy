@@ -1,0 +1,142 @@
+[
+  {
+    "bundle_name": "Authentic Italian Trattoria Dinner Bundle",
+    "seed_product": "Italian Penne Rigate Pasta",
+    "items": [
+      {
+        "product_id": "PROD_001",
+        "product_name": "Italian Penne Rigate Pasta",
+        "category": "Pasta & Italian",
+        "price": 2.49
+      },
+      {
+        "product_id": "PROD_004",
+        "product_name": "Organic Basil Marinara Sauce",
+        "category": "Pasta & Italian",
+        "price": 4.99
+      },
+      {
+        "product_id": "PROD_011",
+        "product_name": "Sundried Tomatoes in Herb Oil",
+        "category": "Pasta & Italian",
+        "price": 4.29
+      },
+      {
+        "product_id": "PROD_010",
+        "product_name": "Crusty Garlic & Herb Baguette",
+        "category": "Pasta & Italian",
+        "price": 3.79
+      }
+    ],
+    "regular_total_price": 15.56,
+    "bundle_promotional_price": 13.23,
+    "discount_percentage": 15,
+    "customer_savings": 2.33,
+    "marketing_hook": "Save 15% when you buy the complete Authentic Italian Trattoria Dinner Bundle!"
+  },
+  {
+    "bundle_name": "Sunday Gourmet Pancake & Breakfast Pack",
+    "seed_product": "Fluffy Buttermilk Pancake Mix",
+    "items": [
+      {
+        "product_id": "PROD_013",
+        "product_name": "Fluffy Buttermilk Pancake Mix",
+        "category": "Breakfast & Bakery",
+        "price": 3.69
+      },
+      {
+        "product_id": "PROD_014",
+        "product_name": "100% Pure Vermont Maple Syrup",
+        "category": "Breakfast & Bakery",
+        "price": 9.99
+      },
+      {
+        "product_id": "PROD_068",
+        "product_name": "100% Cold Pressed Valencia Orange Juice",
+        "category": "Beverages",
+        "price": 4.99
+      },
+      {
+        "product_id": "PROD_015",
+        "product_name": "Creamy Unsalted European Butter",
+        "category": "Breakfast & Bakery",
+        "price": 4.99
+      }
+    ],
+    "regular_total_price": 23.66,
+    "bundle_promotional_price": 20.11,
+    "discount_percentage": 15,
+    "customer_savings": 3.55,
+    "marketing_hook": "Save 15% when you buy the complete Sunday Gourmet Pancake & Breakfast Pack!"
+  },
+  {
+    "bundle_name": "Fiesta Taco & Nacho Night Bundle",
+    "seed_product": "White Corn Street Taco Tortillas",
+    "items": [
+      {
+        "product_id": "PROD_035",
+        "product_name": "White Corn Street Taco Tortillas",
+        "category": "Mexican Fiesta",
+        "price": 2.29
+      },
+      {
+        "product_id": "PROD_037",
+        "product_name": "Tomatillo Salsa Verde Medium",
+        "category": "Mexican Fiesta",
+        "price": 3.49
+      },
+      {
+        "product_id": "PROD_041",
+        "product_name": "Authentic Street Taco Seasoning",
+        "category": "Mexican Fiesta",
+        "price": 1.29
+      },
+      {
+        "product_id": "PROD_044",
+        "product_name": "Crispy Yellow Corn Tortilla Chips",
+        "category": "Mexican Fiesta",
+        "price": 3.29
+      }
+    ],
+    "regular_total_price": 10.36,
+    "bundle_promotional_price": 8.81,
+    "discount_percentage": 15,
+    "customer_savings": 1.55,
+    "marketing_hook": "Save 15% when you buy the complete Fiesta Taco & Nacho Night Bundle!"
+  },
+  {
+    "bundle_name": "Ultimate Movie Night Snack Caddy",
+    "seed_product": "Movie Theater Butter Microwave Popcorn",
+    "items": [
+      {
+        "product_id": "PROD_064",
+        "product_name": "Movie Theater Butter Microwave Popcorn",
+        "category": "Snacks & Munchies",
+        "price": 3.79
+      },
+      {
+        "product_id": "PROD_062",
+        "product_name": "72% Dark Chocolate Cocoa Bar",
+        "category": "Snacks & Munchies",
+        "price": 2.99
+      },
+      {
+        "product_id": "PROD_061",
+        "product_name": "Kettle Cooked Sea Salt Potato Chips",
+        "category": "Snacks & Munchies",
+        "price": 3.69
+      },
+      {
+        "product_id": "PROD_069",
+        "product_name": "Spicy Ginger Ale Craft Soda (6-pack)",
+        "category": "Beverages",
+        "price": 5.49
+      }
+    ],
+    "regular_total_price": 15.96,
+    "bundle_promotional_price": 13.57,
+    "discount_percentage": 15,
+    "customer_savings": 2.39,
+    "marketing_hook": "Save 15% when you buy the complete Ultimate Movie Night Snack Caddy!"
+  }
+]
