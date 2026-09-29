@@ -367,17 +367,19 @@ class NLPEngine:
         
         # 1. Detect Cuisine Theme
         cuisine_theme = "Everyday Gourmet"
-        if any(w in cleaned_prompt for w in ["italian", "pasta", "spaghetti", "penne", "marinara", "alfredo", "pesto", "bolognese"]):
+        if any(w in cleaned_prompt for w in ["daal", "dal", "makhani", "rajma", "paneer", "biryani", "tikka", "indian", "masala", "roti", "chana", "tadka"]):
+            cuisine_theme = "Indian Heritage & Curry"
+        elif any(w in cleaned_prompt for w in ["italian", "pasta", "spaghetti", "penne", "marinara", "alfredo", "pesto", "bolognese"]):
             cuisine_theme = "Italian Trattoria"
         elif any(w in cleaned_prompt for w in ["mexican", "taco", "burrito", "fajita", "salsa", "guacamole", "tortilla"]):
             cuisine_theme = "Mexican Fiesta"
-        elif any(w in cleaned_prompt for w in ["asian", "ramen", "noodle", "stir fry", "tofu", "thai", "curry", "rice"]):
+        elif any(w in cleaned_prompt for w in ["asian", "ramen", "noodle", "stir fry", "tofu", "thai", "sriracha", "teriyaki", "udon", "dumpling"]):
             cuisine_theme = "Asian Stir-Fry & Ramen"
         elif any(w in cleaned_prompt for w in ["breakfast", "brunch", "pancake", "waffle", "morning", "oats", "bagel"]):
             cuisine_theme = "Sunday Artisanal Brunch"
         elif any(w in cleaned_prompt for w in ["coffee", "latte", "espresso", "barista", "matcha", "cafe"]):
             cuisine_theme = "Barista Specialty Cafe"
-        elif any(w in cleaned_prompt for w in ["daal", "dal", "makhani", "curry", "rajma", "paneer", "biryani", "tikka", "indian", "masala"]):
+        elif "curry" in cleaned_prompt:
             cuisine_theme = "Indian Heritage & Curry"
         elif any(w in cleaned_prompt for w in ["salad", "healthy", "detox", "fresh", "greens", "mediterranean"]):
             cuisine_theme = "Mediterranean Garden Fresh"
@@ -461,28 +463,54 @@ class NLPEngine:
         proteins_dairy.sort(key=lambda x: x['score'], reverse=True)
         sides_beverages.sort(key=lambda x: x['score'], reverse=True)
 
-        # Select 1 from each role to create a gastronomically balanced 4-to-5 item meal kit
+        # Signature authentic culinary mappings
+        curated_theme_pids = {
+            "Indian Heritage & Curry": ["PROD_040", "PROD_045", "PROD_015", "PROD_028", "PROD_059"],
+            "Italian Trattoria": ["PROD_001", "PROD_004", "PROD_007", "PROD_012", "PROD_054"],
+            "Mexican Fiesta": ["PROD_036", "PROD_037", "PROD_039", "PROD_040", "PROD_043"],
+            "Asian Stir-Fry & Ramen": ["PROD_046", "PROD_047", "PROD_048", "PROD_050", "PROD_059"],
+            "Sunday Artisanal Brunch": ["PROD_016", "PROD_031", "PROD_015", "PROD_026", "PROD_021"],
+            "Mediterranean Garden Fresh": ["PROD_053", "PROD_054", "PROD_008", "PROD_012", "PROD_057"]
+        }
+
         selected = []
         selected_ids = set()
 
-        def pick_candidate(pool):
-            for candidate in pool:
-                if candidate['product_id'] not in selected_ids:
-                    selected.append(candidate)
-                    selected_ids.add(candidate['product_id'])
-                    return candidate
-            return None
+        if cuisine_theme in curated_theme_pids:
+            curated_pids = curated_theme_pids[cuisine_theme]
+            prod_lookup = {r['id']: r for _, r in self.products_df.iterrows()}
+            for c_pid in curated_pids:
+                if c_pid in prod_lookup:
+                    c_row = prod_lookup[c_pid]
+                    c_idx = self.prod_id_to_idx.get(c_pid, 0)
+                    selected.append({
+                        "product_id": c_pid,
+                        "product_name": c_row['name'],
+                        "category": c_row['category'],
+                        "price": float(c_row['price']),
+                        "score": float(sim_scores[c_idx]) + 0.45
+                    })
+                    selected_ids.add(c_pid)
+        else:
+            # Dynamic role-based greedy selection
+            def pick_candidate(pool):
+                for candidate in pool:
+                    if candidate['product_id'] not in selected_ids:
+                        selected.append(candidate)
+                        selected_ids.add(candidate['product_id'])
+                        return candidate
+                return None
 
-        # Pick 1 Base, 1 Sauce, 1 Produce, 1 Protein/Dairy
-        pick_candidate(bases)
-        pick_candidate(sauces)
-        pick_candidate(produce)
-        pick_candidate(proteins_dairy)
+            # Pick 1 Base, 1 Sauce, 1 Produce, 1 Protein/Dairy
+            pick_candidate(bases)
+            pick_candidate(sauces)
+            pick_candidate(produce)
+            pick_candidate(proteins_dairy)
 
-        # Pick 1 Beverage or Side if under budget
-        curr_total = sum(item['price'] for item in selected)
-        if curr_total < budget - 3.0:
-            pick_candidate(sides_beverages)
+            # Pick 1 Beverage or Side if under budget
+            curr_total = sum(item['price'] for item in selected)
+            if curr_total < budget - 3.0:
+                pick_candidate(sides_beverages)
 
         # Calculate pricing economics
         reg_total = round(sum(item['price'] for item in selected), 2)
