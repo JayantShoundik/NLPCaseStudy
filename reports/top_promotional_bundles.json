@@ -2,6 +2,7 @@
   {
     "bundle_name": "Authentic Italian Trattoria Dinner Bundle",
     "seed_product": "Italian Penne Rigate Pasta",
+    "tagline": "Slow-simmered marinara, artisan pasta & aged parmigiano",
     "items": [
       {
         "product_id": "PROD_001",
@@ -32,11 +33,12 @@
     "bundle_promotional_price": 13.23,
     "discount_percentage": 15,
     "customer_savings": 2.33,
-    "marketing_hook": "Save 15% when you buy the complete Authentic Italian Trattoria Dinner Bundle!"
+    "marketing_hook": "Save 15% with AI Chef Combo Pricing!"
   },
   {
     "bundle_name": "Sunday Gourmet Pancake & Breakfast Pack",
     "seed_product": "Fluffy Buttermilk Pancake Mix",
+    "tagline": "Buttermilk flapjacks, European sweet butter & pure Vermont syrup",
     "items": [
       {
         "product_id": "PROD_013",
@@ -67,11 +69,12 @@
     "bundle_promotional_price": 20.11,
     "discount_percentage": 15,
     "customer_savings": 3.55,
-    "marketing_hook": "Save 15% when you buy the complete Sunday Gourmet Pancake & Breakfast Pack!"
+    "marketing_hook": "Save 15% with AI Chef Combo Pricing!"
   },
   {
-    "bundle_name": "Fiesta Taco & Nacho Night Bundle",
+    "bundle_name": "Fiesta Street Taco & Nacho Kit",
     "seed_product": "White Corn Street Taco Tortillas",
+    "tagline": "Warm corn tortillas, fresh salsa, avocado guacamole & chips",
     "items": [
       {
         "product_id": "PROD_035",
@@ -102,11 +105,12 @@
     "bundle_promotional_price": 8.81,
     "discount_percentage": 15,
     "customer_savings": 1.55,
-    "marketing_hook": "Save 15% when you buy the complete Fiesta Taco & Nacho Night Bundle!"
+    "marketing_hook": "Save 15% with AI Chef Combo Pricing!"
   },
   {
     "bundle_name": "Ultimate Movie Night Snack Caddy",
     "seed_product": "Movie Theater Butter Microwave Popcorn",
+    "tagline": "Buttery microwave popcorn, kettle chips & craft ginger soda",
     "items": [
       {
         "product_id": "PROD_064",
@@ -137,6 +141,6 @@
     "bundle_promotional_price": 13.57,
     "discount_percentage": 15,
     "customer_savings": 2.39,
-    "marketing_hook": "Save 15% when you buy the complete Ultimate Movie Night Snack Caddy!"
+    "marketing_hook": "Save 15% with AI Chef Combo Pricing!"
   }
 ]

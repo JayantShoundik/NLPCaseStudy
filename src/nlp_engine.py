@@ -377,6 +377,8 @@ class NLPEngine:
             cuisine_theme = "Sunday Artisanal Brunch"
         elif any(w in cleaned_prompt for w in ["coffee", "latte", "espresso", "barista", "matcha", "cafe"]):
             cuisine_theme = "Barista Specialty Cafe"
+        elif any(w in cleaned_prompt for w in ["daal", "dal", "makhani", "curry", "rajma", "paneer", "biryani", "tikka", "indian", "masala"]):
+            cuisine_theme = "Indian Heritage & Curry"
         elif any(w in cleaned_prompt for w in ["salad", "healthy", "detox", "fresh", "greens", "mediterranean"]):
             cuisine_theme = "Mediterranean Garden Fresh"
         elif any(w in cleaned_prompt for w in ["movie", "snack", "crunch", "midnight", "chips", "popcorn"]):
@@ -415,6 +417,9 @@ class NLPEngine:
                 score += 0.35
             elif cuisine_theme == "Asian Stir-Fry & Ramen" and cat == "Asian Staples":
                 score += 0.35
+            elif cuisine_theme == "Indian Heritage & Curry":
+                if pid in ["PROD_040", "PROD_045", "PROD_015", "PROD_028", "PROD_059", "PROD_036", "PROD_054", "PROD_051"]:
+                    score += 0.50
             elif cuisine_theme == "Sunday Artisanal Brunch" and cat in ["Breakfast & Bakery", "Dairy & Eggs"]:
                 score += 0.35
             elif cuisine_theme == "Barista Specialty Cafe" and cat == "Coffee & Tea":
@@ -532,6 +537,22 @@ class NLPEngine:
                 "Deglaze pan with tamari soy sauce, red curry paste, and minced fresh garlic.",
                 "Toss noodles and baby spinach into pan for 60 seconds until glazed. Drizzle sriracha to taste."
             ]
+        elif cuisine_theme == "Indian Heritage & Curry":
+            meal_title = "Chef's Creamy Daal Makhani & Fragrant Rice Kit"
+            prep_time = "15 - 20 Mins"
+            dietary = "Vegetarian • High Protein & Fiber"
+            narrative = (
+                "Our NLP recipe model matched North Indian slow-cooked Daal Makhani. "
+                "Organic Black Beans provide the hearty legume foundation, simmered with Fresh Garlic Bulbs "
+                "and ripe cherry tomatoes, enriched with Creamy European Butter and Heavy Whipping Cream "
+                "for a velvety makhani texture, served alongside fragrant long-grain Jasmine Rice."
+            )
+            steps = [
+                "Rinse and lightly mash Organic Black Beans in a saucepan over medium flame with a splash of water.",
+                "Mince Fresh Garlic Bulbs and sauté in generous European butter until golden and fragrant.",
+                "Stir sautéed garlic, crushed ripe cherry tomatoes, and red curry aromatics into simmering beans.",
+                "Fold in Heavy Whipping Cream on low heat for 8 minutes; ladle over steaming Jasmine Rice."
+            ]
         elif cuisine_theme == "Sunday Artisanal Brunch":
             meal_title = "Sunday Golden Flapjack & Maple Feast"
             prep_time = "12 Mins"
@@ -547,7 +568,7 @@ class NLPEngine:
                 "Stack warm flapjacks, top with melted butter, and generously pour pure Vermont maple syrup."
             ]
         else:
-            meal_title = f"{cuisine_theme} Gourmet Meal Kit"
+            meal_title = f"{cuisine_theme} Meal Kit" if "Gourmet" in cuisine_theme else f"{cuisine_theme} Gourmet Meal Kit"
             prep_time = "15 Mins"
             dietary = "Chef Curated • Quick Commerce"
             narrative = (

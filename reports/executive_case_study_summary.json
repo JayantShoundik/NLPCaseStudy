@@ -12,10 +12,10 @@
     "min_lift": 1.2,
     "total_rules_mined": 7878,
     "top_rule": {
-      "antecedent": "Fragrant Thai Jasmine Rice (5 lb), Thai Red Curry Cooking Paste",
-      "consequent": "Organic Extra Firm Tofu, Organic Unsweetened Coconut Milk",
+      "antecedent": "Organic Extra Firm Tofu, Organic Unsweetened Coconut Milk",
+      "consequent": "Fragrant Thai Jasmine Rice (5 lb), Thai Red Curry Cooking Paste",
       "lift": 16.183,
-      "confidence": 0.5818,
+      "confidence": 0.5862,
       "support": 0.0211
     }
   },
@@ -23,7 +23,7 @@
     "Popularity Baseline": 0.396,
     "Pure Association Rules (Apriori/FP-Growth)": 0.803,
     "Pure NLP Semantic Similarity": 0.679,
-    "Hybrid (Association + NLP + Reviews)": 0.813
+    "Hybrid (Association + NLP + Reviews)": 0.8
   },
-  "total_execution_time_seconds": 28.94
+  "total_execution_time_seconds": 89.52
 }
