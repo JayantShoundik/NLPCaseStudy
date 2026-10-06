@@ -42,3 +42,8 @@ env/
 
 # Scratch files
 scratch/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3

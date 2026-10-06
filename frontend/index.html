@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBasket AI — Market Basket & NLP Culinary Intelligence</title>
+  <meta name="description" content="Next-generation quick-commerce grocery platform fusing FP-Growth association rules with NLP semantic embeddings, AI recipe copilot, and real-time delivery economics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span>⚡ <b>Dark Store Hub #04</b>: 10-Minute Hyperlocal Instant Delivery Active</span>
+      <span class="announcement-separator">•</span>
+      <span>❄️ <b>Cold-Chain Compliance</b>: Automated Thermal Ice Pouches</span>
+      <span class="announcement-separator">•</span>
+      <span>🎁 Use code <b>AI10</b> for 10% OFF</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="#" class="brand-logo" onclick="switchTab('store'); return false;">
+          <div class="brand-icon">⚡</div>
+          <div class="brand-text">
+            <span class="brand-title">QuickBasket<span class="brand-accent">AI</span></span>
+            <span class="brand-subtitle">NLP & FP-GROWTH INTELLIGENCE</span>
+          </div>
+        </a>
+
+        <div class="hub-pill">
+          <span class="hub-pulse"></span>
+          <span class="hub-text">San Francisco <b>Dark Store #04</b> (10m)</span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="global-search" placeholder="Search 74 artisanal SKUs, ingredients (e.g. marinara, truffle, basil)..." autocomplete="off">
+          <button id="search-clear-btn" class="search-clear-btn" style="display:none;" onclick="clearSearch()">✕</button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <!-- Auth User Pill -->
+        <div id="auth-section">
+          <!-- Populated by JS: either Sign In button or Profile Pill -->
+          <button id="btn-login-open" class="btn btn-secondary btn-sm" onclick="openAuthModal('login')">
+            <span>👤 Sign In / Join</span>
+          </button>
+        </div>
+
+        <!-- Cart Drawer Toggle -->
+        <button id="cart-toggle-btn" class="cart-pill-btn" onclick="toggleCartDrawer()">
+          <span class="cart-icon">🛍️</span>
+          <span id="header-cart-total" class="cart-total">$0.00</span>
+          <span id="header-cart-badge" class="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PRIMARY TAB NAVIGATION -->
+    <nav class="nav-tabs-bar">
+      <div class="tabs-scroll-container">
+        <button class="nav-tab active" data-tab="store" onclick="switchTab('store')">
+          <span class="tab-icon">🛒</span> Catalog & Aisles
+        </button>
+        <button class="nav-tab" data-tab="copilot" onclick="switchTab('copilot')">
+          <span class="tab-icon">🍳</span> AI Recipe Copilot
+        </button>
+        <button class="nav-tab" data-tab="semantic-map" onclick="switchTab('semantic-map')">
+          <span class="tab-icon">🗺️</span> 2D Semantic Vector Map
+        </button>
+        <button class="nav-tab" data-tab="absa" onclick="switchTab('absa')">
+          <span class="tab-icon">💬</span> Aspect Sentiment (ABSA)
+        </button>
+        <button class="nav-tab" data-tab="bundles" onclick="switchTab('bundles')">
+          <span class="tab-icon">🎁</span> Smart Bundles (Lift &gt; 3x)
+        </button>
+        <button class="nav-tab" data-tab="coldstart" onclick="switchTab('coldstart')">
+          <span class="tab-icon">🧪</span> Cold-Start Solver Lab
+        </button>
+        <button class="nav-tab" data-tab="benchmarks" onclick="switchTab('benchmarks')">
+          <span class="tab-icon">📊</span> ML Model Benchmarks
+        </button>
+        <button class="nav-tab" data-tab="account" onclick="switchTab('account')">
+          <span class="tab-icon">👤</span> My Account & Orders
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="main-content">
+
+    <!-- ==================================================== -->
+    <!-- TAB 1: STORE CATALOG & AISLE BROWSER -->
+    <!-- ==================================================== -->
+    <section id="view-store" class="tab-view active">
+      <!-- Hero Banner -->
+      <div class="store-hero">
+        <div class="hero-content">
+          <div class="hero-badge">⚡ Real-Time Quick-Commerce Machine Learning</div>
+          <h1 class="hero-title">Hyperlocal Dark Store with <span class="gradient-text">Algorithmic Basket Intelligence</span></h1>
+          <p class="hero-description">
+            Powered by <b>FP-Growth Association Mining</b> (7,878 discovered rules) &amp; <b>TF-IDF Vector Embeddings</b> across 50,000 transaction receipts. Add items to see live multi-item recommendations with substitute suppression and delivery economics.
+          </p>
+          <div class="hero-stats">
+            <div class="h-stat"><span class="h-val">50,000</span> <span class="h-lbl">Baskets Mined</span></div>
+            <div class="h-stat"><span class="h-val">81.3%</span> <span class="h-lbl">Hit Rate@5</span></div>
+            <div class="h-stat"><span class="h-val">15.9x</span> <span class="h-lbl">FP-Growth Speedup</span></div>
+            <div class="h-stat"><span class="h-val">10 Mins</span> <span class="h-lbl">Delivery SLA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Basket Recommendations Banner (when items in cart) -->
+      <div id="live-cart-recs-banner" class="live-recs-banner" style="display: none;">
+        <div class="recs-banner-header">
+          <div>
+            <span class="recs-tag">🧠 REAL-TIME BASKET ML NUDGES</span>
+            <h3 class="recs-title">Frequently Bought Together with Your Cart</h3>
+          </div>
+          <button class="btn btn-xs btn-outline" onclick="toggleCartDrawer()">View Cart Drawer →</button>
+        </div>
+        <div id="banner-recs-carousel" class="recs-carousel"></div>
+      </div>
+
+      <!-- Aisle Pills Bar -->
+      <div class="aisle-filter-section">
+        <div class="aisle-scroll-wrapper" id="aisle-pills-container">
+          <button class="aisle-pill active" onclick="filterAisle('all')">
+            <span class="aisle-emoji">🏷️</span> All Aisles (74)
+          </button>
+          <!-- Dynamic aisle pills injected by JS -->
+        </div>
+      </div>
+
+      <!-- Catalog Controls & Count -->
+      <div class="catalog-header-bar">
+        <div class="catalog-count-text">
+          Showing <b id="displayed-products-count">74</b> items in dark store inventory
+        </div>
+        <div class="catalog-sort-wrapper">
+          <label for="catalog-sort">Sort by:</label>
+          <select id="catalog-sort" onchange="sortCatalog(this.value)">
+            <option value="default">AI Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating-desc">Customer Rating (ABSA)</option>
+            <option value="name-asc">Alphabetical (A-Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="product-grid" class="product-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 2: AI RECIPE & MEAL COPILOT -->
+    <!-- ==================================================== -->
+    <section id="view-copilot" class="tab-view">
+      <div class="copilot-container">
+        <div class="copilot-hero">
+          <div class="copilot-badge">🍳 Natural Language Prompt-to-Cart Engine</div>
+          <h2>AI Culinary Copilot &amp; Meal Kit Synthesizer</h2>
+          <p>
+            Describe any craving, occasion, or dietary goal. Our NLP semantic parser vectorizes your prompt, identifies culinary blueprint components, maps ingredients to live dark store inventory, and computes a 1-click cart meal kit.
+          </p>
+        </div>
+
+        <!-- Preset Craving Chips -->
+        <div class="recipe-chips-wrapper">
+          <div class="chips-label">💡 Try Popular Craving Prompts:</div>
+          <div class="chips-container">
+            <button class="recipe-chip" onclick="applyRecipePrompt('Authentic creamy Italian pasta dinner for date night with wine')">🍝 Italian Date Night Pasta</button>
+            <button class="recipe-chip" onclick="applyRecipePrompt('Quick authentic Mexican street tacos under $15 with guacamole')">🌮 Mexican Street Tacos</button>
+            <button class="recipe-chip" onclick="applyRecipePrompt('Spicy Asian ramen noodles with organic tofu and sesame sriracha')">🍜 Tokyo Tofu Ramen</button>
+            <button class="recipe-chip" onclick="applyRecipePrompt('Sunday morning fluffy buttermilk pancakes with pure maple syrup and butter')">🥞 Sunday Fluffy Pancakes</button>
+            <button class="recipe-chip" onclick="applyRecipePrompt('Fresh crisp Mediterranean salad with cherry tomatoes, mozzarella and balsamic')">🥗 Mediterranean Salad</button>
+            <button class="recipe-chip" onclick="applyRecipePrompt('Rich slow-cooked Daal Makhani with basmati rice, garlic naan and butter')">🍛 Daal Makhani &amp; Rice</button>
+          </div>
+        </div>
+
+        <!-- Craving Input Box -->
+        <div class="copilot-input-card">
+          <form id="copilot-form" onsubmit="generateMealKit(event)">
+            <div class="input-row">
+              <div class="input-group flex-1">
+                <label for="copilot-prompt">Tell Chef AI what you want to cook or crave:</label>
+                <div class="input-with-icon">
+                  <span class="field-icon">💬</span>
+                  <input type="text" id="copilot-prompt" value="Authentic creamy Italian pasta dinner for date night with wine" placeholder="e.g. Creamy garlic pasta with herbs, quick tacos under $15..." required>
+                </div>
+              </div>
+              <div class="input-group servings-group">
+                <label for="copilot-servings">Servings:</label>
+                <select id="copilot-servings">
+                  <option value="2" selected>2 Persons</option>
+                  <option value="4">4 Persons</option>
+                  <option value="6">6 Family</option>
+                </select>
+              </div>
+              <div class="input-group budget-group">
+                <label for="copilot-budget">Budget Limit:</label>
+                <select id="copilot-budget">
+                  <option value="25" selected>Under $25</option>
+                  <option value="35">Under $35</option>
+                  <option value="50">Under $50</option>
+                </select>
+              </div>
+              <div class="input-group submit-group">
+                <button type="submit" id="btn-synthesize-kit" class="btn btn-primary btn-block">
+                  <span id="copilot-btn-text">🍳 Synthesize Meal Kit</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Synthesized Meal Kit Results Card -->
+        <div id="copilot-result-box" class="copilot-result-box" style="display:none;">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 3: 2D SEMANTIC VECTOR EMBEDDING MAP -->
+    <!-- ==================================================== -->
+    <section id="view-semantic-map" class="tab-view">
+      <div class="semantic-map-container">
+        <div class="section-header">
+          <div>
+            <div class="section-badge">🗺️ High-Dimensional TF-IDF Projection</div>
+            <h2>2D Semantic Vector Embedding Map (TruncatedSVD)</h2>
+            <p>
+              High-dimensional 2,500-term TF-IDF space reduced to 2D coordinates across all 74 SKUs. Products close in culinary &amp; ingredient space cluster together. Active cart items glow with gold badges, and live cosine similarity vectors connect them.
+            </p>
+          </div>
+          <div class="map-controls">
+            <button class="btn btn-sm btn-outline" onclick="resetMapZoom()">🔄 Reset Zoom</button>
+            <button class="btn btn-sm btn-secondary" onclick="toggleCartSimOverlay()">✨ Highlight Cart Vectors</button>
+          </div>
+        </div>
+
+        <!-- Canvas Container -->
+        <div class="map-canvas-wrapper">
+          <canvas id="semantic-canvas" width="1000" height="600"></canvas>
+          <div id="map-tooltip" class="map-tooltip" style="display: none;"></div>
+          <!-- Aisle Legend -->
+          <div id="map-legend" class="map-legend"></div>
+        </div>
+
+        <!-- Cart Pairwise Cosine Similarity Heatmap -->
+        <div id="cart-similarity-section" class="cart-similarity-card" style="display: none;">
+          <h3>🔥 Live Cosine Similarity Matrix for Items in Your Cart</h3>
+          <p>Measures ingredient vocabulary overlap between your chosen items in vector space.</p>
+          <div id="cart-similarity-table-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 4: ASPECT-BASED SENTIMENT ANALYSIS (ABSA) -->
+    <!-- ==================================================== -->
+    <section id="view-absa" class="tab-view">
+      <div class="absa-container">
+        <div class="section-header">
+          <div>
+            <div class="section-badge">💬 Aspect-Based Sentiment Mining (ABSA)</div>
+            <h2>Customer Review Sentiment &amp; Culinary Pairings</h2>
+            <p>
+              Mined across 15,000 customer receipts and reviews with VADER sentiment polarity. Analyzes 4 core quality aspects: <b>Taste &amp; Flavor</b>, <b>Freshness &amp; Quality</b>, <b>Texture &amp; Consistency</b>, and <b>Value for Money</b>.
+            </p>
+          </div>
+          <div class="absa-product-select-wrapper">
+            <label for="absa-sku-picker">Select Product SKU:</label>
+            <select id="absa-sku-picker" onchange="loadProductABSA(this.value)">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+        </div>
+
+        <div id="absa-content-area" class="absa-content-area">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Live Review Submission Card -->
+        <div class="submit-review-card">
+          <div class="card-header">
+            <h3>✍️ Submit Verified Customer Review with Live VADER Scoring</h3>
+            <p>Write your experience. Our backend NLP engine will analyze compound polarity and update product sentiment scores in real-time.</p>
+          </div>
+          <form id="review-form" onsubmit="submitReview(event)">
+            <div class="review-form-row">
+              <div class="input-group">
+                <label for="review-author">Shopper Name:</label>
+                <input type="text" id="review-author" placeholder="Your name (e.g. Alex R.)" required>
+              </div>
+              <div class="input-group">
+                <label for="review-rating">Rating:</label>
+                <select id="review-rating">
+                  <option value="5">⭐⭐⭐⭐⭐ 5 Stars (Exceptional)</option>
+                  <option value="4">⭐⭐⭐⭐ 4 Stars (Great)</option>
+                  <option value="3">⭐⭐⭐ 3 Stars (Average)</option>
+                  <option value="2">⭐⭐ 2 Stars (Below Expectation)</option>
+                  <option value="1">⭐ 1 Star (Poor)</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="review-text">Review Comments (Flavor, freshness, meal pairings):</label>
+              <textarea id="review-text" rows="3" placeholder="Tell us about the texture, pairing with pasta, freshness..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">🚀 Submit Review &amp; Run VADER Polarity</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 5: SMART PROMOTIONAL BUNDLES -->
+    <!-- ==================================================== -->
+    <section id="view-bundles" class="tab-view">
+      <div class="bundles-container">
+        <div class="section-header">
+          <div>
+            <div class="section-badge">🎁 High-Lift Frequent Itemsets</div>
+            <h2>Algorithmic Promotional Bundles &amp; Margin Optimizer</h2>
+            <p>
+              Mined from frequent itemsets with statistical Lift &gt; 2.5x. Combines complementary items with promotional discounts to boost dark-store Average Order Value (AOV) while saving customers money.
+            </p>
+          </div>
+        </div>
+
+        <div id="bundles-grid" class="bundles-grid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 6: ZERO-HISTORY COLD-START SOLVER LAB -->
+    <!-- ==================================================== -->
+    <section id="view-coldstart" class="tab-view">
+      <div class="coldstart-container">
+        <div class="section-header">
+          <div>
+            <div class="section-badge">🧪 E-Commerce Cold-Start Solution</div>
+            <h2>Zero-History Cold-Start Problem Solver Studio</h2>
+            <p>
+              Traditional collaborative filtering and Apriori/FP-Growth fail completely on brand new items with 0 historical purchase receipts (0 association rules). See how our NLP Semantic Engine vectorizes product descriptions and ingredients to instantly compute 5 complementary cross-sells on day zero!
+            </p>
+          </div>
+        </div>
+
+        <div class="coldstart-grid">
+          <div class="coldstart-card input-card">
+            <h3>🆕 Introduce a Brand-New SKU (0 Receipts)</h3>
+            <p>Enter the product specifications below or select an artisanal test sample:</p>
+
+            <div class="preset-sample-btns">
+              <button class="btn btn-xs btn-outline" onclick="fillColdStart('Artisanal Black Truffle Mustard', 'Decadent French Dijon mustard infused with Périgord black truffles and wildflower honey', 'Dijon mustard seeds, white wine, black truffles, honey, sea salt', 'Condiments & Spices')">Truffle Mustard</button>
+              <button class="btn btn-xs btn-outline" onclick="fillColdStart('Stone-Ground Japanese Matcha Pancake Mix', 'Ceremonial grade matcha blended with unbleached organic flour and Madagascar vanilla', 'Organic wheat flour, Japanese ceremonial matcha, cane sugar, baking powder, sea salt', 'Breakfast & Bakery')">Matcha Pancake Mix</button>
+              <button class="btn btn-xs btn-outline" onclick="fillColdStart('Fiery Chipotle Pineapple Salsa', 'Fire-roasted pineapples, smoky chipotle peppers, lime juice, and cilantro', 'Pineapple chunks, chipotle peppers in adobo, red onion, lime, fresh cilantro', 'Mexican Fiesta')">Chipotle Pineapple Salsa</button>
+            </div>
+
+            <form id="coldstart-form" onsubmit="solveColdStart(event)">
+              <div class="input-group">
+                <label for="cs-name">Product Name:</label>
+                <input type="text" id="cs-name" value="Artisanal Black Truffle Mustard" required>
+              </div>
+              <div class="input-group">
+                <label for="cs-aisle">Aisle / Category:</label>
+                <select id="cs-aisle">
+                  <option value="Condiments & Spices">Condiments &amp; Spices</option>
+                  <option value="Pasta & Italian">Pasta &amp; Italian</option>
+                  <option value="Breakfast & Bakery">Breakfast &amp; Bakery</option>
+                  <option value="Mexican Fiesta">Mexican Fiesta</option>
+                  <option value="Asian Staples">Asian Staples</option>
+                  <option value="Dairy & Eggs">Dairy &amp; Eggs</option>
+                  <option value="Snacks & Munchies">Snacks &amp; Munchies</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="cs-desc">Description:</label>
+                <textarea id="cs-desc" rows="2" required>Decadent French Dijon mustard infused with Périgord black truffles and wildflower honey</textarea>
+              </div>
+              <div class="input-group">
+                <label for="cs-ingr">Ingredients:</label>
+                <textarea id="cs-ingr" rows="2" required>Dijon mustard seeds, white wine, black truffles, honey, sea salt</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">🚀 Run NLP Vectorizer &amp; Synthesize Cross-Sells</button>
+            </form>
+          </div>
+
+          <div class="coldstart-card results-card" id="coldstart-results-card">
+            <h3>🎯 Instant Complementary Cross-Sells (0 Receipts Needed)</h3>
+            <div id="cs-results-content">
+              <div class="placeholder-box">
+                Click <b>Run NLP Vectorizer</b> to calculate semantic cosine distance and complementary pairings.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 7: ML BENCHMARKS & EVALUATION METRICS -->
+    <!-- ==================================================== -->
+    <section id="view-benchmarks" class="tab-view">
+      <div class="benchmarks-container">
+        <div class="section-header">
+          <div>
+            <div class="section-badge">📊 Algorithmic Validation &amp; Speedup</div>
+            <h2>Offline Holdout Test Suite &amp; Algorithm Benchmarks</h2>
+            <p>
+              Quantifying recommendation accuracy on 10,000 holdout receipts using <b>Hit Rate@K</b>, <b>Precision@K</b>, and <b>Mean Reciprocal Rank (MRR)</b>. Benchmarks FP-Growth vs Apriori candidate generation speed.
+            </p>
+          </div>
+        </div>
+
+        <!-- Metrics Cards Row -->
+        <div class="bench-cards-grid">
+          <div class="bench-stat-card highlight">
+            <div class="bs-val">81.3%</div>
+            <div class="bs-lbl">Hybrid Recommender Hit Rate@5</div>
+            <div class="bs-sub">+105% vs Popularity Baseline (39.6%)</div>
+          </div>
+          <div class="bench-stat-card">
+            <div class="bs-val">15.9x</div>
+            <div class="bs-lbl">FP-Growth Execution Speedup</div>
+            <div class="bs-sub">0.29s (FP-Tree) vs 4.67s (Apriori candidate generation)</div>
+          </div>
+          <div class="bench-stat-card">
+            <div class="bs-val">0.642</div>
+            <div class="bs-lbl">Mean Reciprocal Rank (MRR)</div>
+            <div class="bs-sub">Top complementary items ranked at position #1.5 on average</div>
+          </div>
+          <div class="bench-stat-card">
+            <div class="bs-val">7,878</div>
+            <div class="bs-lbl">Association Rules Extracted</div>
+            <div class="bs-sub">Filtered with Support ≥ 0.015 &amp; Lift ≥ 1.2</div>
+          </div>
+        </div>
+
+        <!-- Comparative Metrics Table -->
+        <div class="bench-table-card">
+          <h3>🔬 Rigorous Model Comparison (1,000 Unseen Test Sessions)</h3>
+          <div class="table-responsive">
+            <table class="bench-table">
+              <thead>
+                <tr>
+                  <th>Model / Algorithm Architecture</th>
+                  <th>Hit Rate@3</th>
+                  <th>Hit Rate@5</th>
+                  <th>Precision@5</th>
+                  <th>Recall@5</th>
+                  <th>MRR</th>
+                  <th>Cold-Start Resilient</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row-hybrid">
+                  <td><b>🌟 Hybrid Engine (FP-Growth + NLP TF-IDF + VADER)</b></td>
+                  <td><b>72.4%</b></td>
+                  <td><b class="text-emerald">81.3%</b></td>
+                  <td><b>28.5%</b></td>
+                  <td><b>42.1%</b></td>
+                  <td><b>0.642</b></td>
+                  <td><span class="badge-yes">✅ Yes (NLP Fallback)</span></td>
+                </tr>
+                <tr>
+                  <td>⚡ Pure FP-Growth Association Rules</td>
+                  <td>64.1%</td>
+                  <td>74.2%</td>
+                  <td>25.4%</td>
+                  <td>37.8%</td>
+                  <td>0.589</td>
+                  <td><span class="badge-no">❌ No (Fails on 0-receipt items)</span></td>
+                </tr>
+                <tr>
+                  <td>🌿 Pure NLP Semantic TF-IDF Similarities</td>
+                  <td>58.2%</td>
+                  <td>67.9%</td>
+                  <td>21.8%</td>
+                  <td>33.2%</td>
+                  <td>0.512</td>
+                  <td><span class="badge-yes">✅ Yes (Pure text)</span></td>
+                </tr>
+                <tr>
+                  <td>📉 Popularity Baseline (Global Top 5)</td>
+                  <td>31.5%</td>
+                  <td>39.6%</td>
+                  <td>12.4%</td>
+                  <td>19.5%</td>
+                  <td>0.298</td>
+                  <td><span class="badge-neutral">⚠️ Static</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Mathematical Foundations Card -->
+        <div class="math-foundations-grid">
+          <div class="math-card">
+            <h4>📐 Association Mining Formulation</h4>
+            <div class="math-formula">
+              $$\text{Lift}(A \to B) = \frac{P(A \cap B)}{P(A) \cdot P(B)} = \frac{\text{Confidence}(A \to B)}{\text{Support}(B)}$$
+            </div>
+            <p>A Lift &gt; 1.0 indicates that item B is significantly more likely to be purchased when item A is present than by random chance alone.</p>
+          </div>
+          <div class="math-card">
+            <h4>🧠 Hybrid Scoring Formulation</h4>
+            <div class="math-formula">
+              $$S(i, j) = 0.55 \cdot \text{Norm}(\text{Lift}_{i \to j}) + 0.30 \cdot \text{Cosine}(\vec{v}_i, \vec{v}_j) + 0.15 \cdot \text{Sentiment}(j)$$
+            </div>
+            <p>Guarantees high transactional co-purchase affinity while anchoring recommendations in culinary flavor harmony and verified user happiness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- TAB 8: USER ACCOUNT & ORDER HISTORY -->
+    <!-- ==================================================== -->
+    <section id="view-account" class="tab-view">
+      <div class="account-container">
+        <div id="account-logged-out" class="account-state-card" style="display:none;">
+          <div class="empty-icon">🔒</div>
+          <h2>Please Sign In or Create an Account</h2>
+          <p>Access your real-time 10-minute order history, track cold-chain deliveries, redeem loyalty points, and review past recipes.</p>
+          <div class="btn-group-center">
+            <button class="btn btn-primary" onclick="openAuthModal('login')">Sign In</button>
+            <button class="btn btn-secondary" onclick="quickDemoLogin()">⚡ Quick Demo Login (Chef Alex)</button>
+          </div>
+        </div>
+
+        <div id="account-logged-in" class="account-dashboard" style="display:none;">
+          <!-- Profile Header -->
+          <div class="profile-header-card">
+            <div class="profile-left">
+              <img id="user-avatar-img" class="profile-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Avatar">
+              <div>
+                <h2 id="user-display-name">Chef Alex Rivera</h2>
+                <div class="user-meta">
+                  <span id="user-display-email">demo@antigravity.ai</span> •
+                  <span class="vip-badge">🏆 Dark Store Platinum Member</span>
+                </div>
+              </div>
+            </div>
+            <div class="profile-right">
+              <div class="points-box">
+                <div class="points-val" id="user-loyalty-pts">500</div>
+                <div class="points-lbl">🪙 Loyalty Rewards Points</div>
+                <div class="points-sub">Redeem for $5.00 off next order</div>
+              </div>
+              <button class="btn btn-xs btn-outline" onclick="logoutUser()">Log Out</button>
+            </div>
+          </div>
+
+          <!-- Account Tabs: Orders & Saved Recipes -->
+          <div class="account-sections-grid">
+            <div class="account-col">
+              <div class="section-title-row">
+                <h3>📦 Recent 10-Minute Instant Orders</h3>
+                <span class="pill-count" id="orders-count-badge">0 orders</span>
+              </div>
+              <div id="orders-history-list" class="orders-list">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <div class="account-col">
+              <div class="section-title-row">
+                <h3>👨‍🍳 Saved AI Recipe Meal Kits</h3>
+                <span class="pill-count" id="recipes-count-badge">0 saved</span>
+              </div>
+              <div id="saved-recipes-list" class="saved-recipes-list">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================== -->
+  <!-- SLIDE-OUT CART DRAWER -->
+  <!-- ==================================================== -->
+  <div id="cart-drawer-backdrop" class="drawer-backdrop" onclick="toggleCartDrawer()"></div>
+  <aside id="cart-drawer" class="cart-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <span class="drawer-title">Shopping Basket</span>
+        <span id="drawer-item-count" class="badge-count">0 items</span>
+      </div>
+      <button class="drawer-close-btn" onclick="toggleCartDrawer()">✕</button>
+    </div>
+
+    <!-- 10-Minute Free Delivery Progress Bar -->
+    <div class="delivery-threshold-bar">
+      <div class="threshold-header">
+        <span id="delivery-threshold-status" class="threshold-status">Add $15.00 for FREE 10-Minute Delivery</span>
+        <span id="delivery-fee-badge" class="fee-badge">$1.99 Delivery Fee</span>
+      </div>
+      <div class="progress-track">
+        <div id="delivery-progress-fill" class="progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cold-Chain Compliance Notice -->
+    <div id="cold-chain-banner" class="cold-chain-banner" style="display: none;">
+      <span class="ice-icon">❄️</span>
+      <div class="ice-text">
+        <b>Cold-Chain Compliant Packing</b>
+        <span>Insulated ice-pack pouch automatically included for fresh dairy/produce.</span>
+      </div>
+    </div>
+
+    <!-- Live Gastronomic Nudge Alert -->
+    <div id="gastronomic-nudge-box" class="gastronomic-nudge-box" style="display: none;">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div id="cart-items-container" class="cart-items-container">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- In-Cart Cross-Sell Recommendations -->
+    <div id="cart-cross-sells-wrapper" class="cart-cross-sells-wrapper" style="display: none;">
+      <div class="cross-sell-title">⚡ Shoppers Also Grab (FP-Growth Lift):</div>
+      <div id="cart-cross-sells-list" class="cart-cross-sells-list"></div>
+    </div>
+
+    <!-- Drawer Footer & Checkout -->
+    <div class="drawer-footer">
+      <div class="bill-row">
+        <span>Basket Subtotal</span>
+        <span id="drawer-subtotal">$0.00</span>
+      </div>
+      <div class="bill-row">
+        <span>10-Minute Delivery Fee</span>
+        <span id="drawer-delivery-fee">$1.99</span>
+      </div>
+      <div class="bill-row bill-total">
+        <span>To Pay</span>
+        <span id="drawer-total-amount">$1.99</span>
+      </div>
+
+      <button id="btn-proceed-checkout" class="btn btn-primary btn-block btn-lg" onclick="openCheckoutModal()">
+        Proceed to 10-Min Fast Track Checkout →
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================================================== -->
+  <!-- CHECKOUT MODAL -->
+  <!-- ==================================================== -->
+  <div id="checkout-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>⚡ 10-Minute Hyperlocal Checkout</h3>
+        <button class="modal-close-btn" onclick="closeCheckoutModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="checkout-sla-banner">
+          <div class="sla-icon">⏱️</div>
+          <div>
+            <b>10-Minute Fast Track Guarantee</b>
+            <p>Packed in Dark Store Hub #04 and dispatched via instant e-courier.</p>
+          </div>
+        </div>
+
+        <form id="checkout-form" onsubmit="executeCheckout(event)">
+          <div class="input-group">
+            <label for="checkout-address">Delivery Address (San Francisco):</label>
+            <input type="text" id="checkout-address" value="742 Evergreen Terrace, San Francisco, CA" required>
+          </div>
+
+          <div class="input-group">
+            <label for="checkout-payment">Payment Method:</label>
+            <select id="checkout-payment">
+              <option value="Instant QuickPay (Apple Pay)">Instant QuickPay (Apple Pay)</option>
+              <option value="Visa / Mastercard (**** 4821)">Visa / Mastercard (**** 4821)</option>
+              <option value="Cash / Tap on 10-Min Delivery">Cash / Tap on 10-Min Delivery</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="checkout-promo">Promotional Code:</label>
+            <div class="input-with-button">
+              <input type="text" id="checkout-promo" placeholder="Try code AI10 for 10% off" value="AI10">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="applyPromoCode()">Apply</button>
+            </div>
+            <span id="promo-status-msg" class="promo-feedback"></span>
+          </div>
+
+          <!-- Order Summary in Modal -->
+          <div class="checkout-summary-box">
+            <div class="bill-row">
+              <span>Items Total:</span>
+              <span id="modal-subtotal">$0.00</span>
+            </div>
+            <div class="bill-row">
+              <span>Promo Discount (AI10):</span>
+              <span id="modal-discount">-$0.00</span>
+            </div>
+            <div class="bill-row">
+              <span>Instant Delivery:</span>
+              <span id="modal-delivery-fee">$0.00</span>
+            </div>
+            <div class="bill-row bill-total">
+              <span>Grand Total:</span>
+              <span id="modal-grand-total">$0.00</span>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-submit-order" class="btn btn-primary btn-block btn-lg">
+            Confirm &amp; Dispatch Order 🚀
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- AUTH MODAL (LOGIN / REGISTER) -->
+  <!-- ==================================================== -->
+  <div id="auth-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card auth-modal-card">
+      <div class="modal-header">
+        <h3 id="auth-modal-title">Sign In to QuickBasket AI</h3>
+        <button class="modal-close-btn" onclick="closeAuthModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Quick Demo Login Button -->
+        <div class="demo-login-box">
+          <button type="button" class="btn btn-secondary btn-block demo-btn" onclick="quickDemoLogin()">
+            ⚡ Instant 1-Click Demo Login (Chef Alex Rivera)
+          </button>
+          <div class="divider"><span>or with credentials</span></div>
+        </div>
+
+        <!-- Auth Tabs -->
+        <div class="auth-tabs">
+          <button type="button" id="tab-login-btn" class="auth-tab-btn active" onclick="setAuthMode('login')">Sign In</button>
+          <button type="button" id="tab-register-btn" class="auth-tab-btn" onclick="setAuthMode('register')">Create Account</button>
+        </div>
+
+        <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+          <div id="auth-fullname-group" class="input-group" style="display: none;">
+            <label for="auth-fullname">Full Name:</label>
+            <input type="text" id="auth-fullname" placeholder="Chef Alex Rivera">
+          </div>
+
+          <div class="input-group">
+            <label for="auth-identifier" id="auth-identifier-label">Email or Username:</label>
+            <input type="text" id="auth-identifier" placeholder="demo@antigravity.ai" required>
+          </div>
+
+          <div class="input-group">
+            <label for="auth-password">Password:</label>
+            <input type="password" id="auth-password" placeholder="••••••••" required>
+          </div>
+
+          <div id="auth-error-alert" class="alert-error" style="display:none;"></div>
+
+          <button type="submit" id="auth-submit-btn" class="btn btn-primary btn-block btn-lg">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- PRODUCT DETAIL & ABSA MODAL -->
+  <!-- ==================================================== -->
+  <div id="product-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card product-modal-card">
+      <div class="modal-header">
+        <span class="modal-subtitle" id="modal-prod-aisle">Pasta &amp; Italian</span>
+        <button class="modal-close-btn" onclick="closeProductModal()">✕</button>
+      </div>
+      <div class="modal-body" id="product-modal-body">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS CONTAINER -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- APP LOGIC -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

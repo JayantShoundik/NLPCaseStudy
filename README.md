@@ -94,13 +94,28 @@ Executes data verification, NLP processing, association mining, bundle creation,
 python3 run_case_study.py
 ```
 
-### 2. Launch the Interactive Streamlit Dashboard
+### 2. Launch the Full-Stack QuickBasket AI Web Platform (FastAPI + SQLite + Modern Web UI)
+Runs the complete full-stack web application with authentication, database persistence, REST API, and interactive UI:
+```bash
+python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+```
+Open your browser at `http://localhost:8000` to interact with:
+- 🛍️ **Hyperlocal Dark Store Catalog**: 74 SKUs across 10 aisles with verified CDN photos, live cart drawer, 10-minute delivery threshold economics ($15 threshold), and cold-chain compliance.
+- 🍳 **AI Recipe & Meal Copilot**: Natural language craving prompt to 1-click cart meal kits.
+- 🗺️ **2D Semantic Vector Embedding Map**: Interactive canvas with TruncatedSVD coordinates and live cart cosine similarity heatmap.
+- 💬 **Aspect-Based Sentiment Analysis (ABSA)**: 4-aspect quality breakdowns (Taste, Freshness, Texture, Value) and live review submission with VADER sentiment scoring.
+- 🎁 **Algorithmic Promotional Bundles**: High-lift bundles with savings discounts.
+- 🧪 **Zero-History Cold-Start Solver**: Vectorizes custom SKUs on day zero without transaction receipts.
+- 👤 **Auth & Database Management**: SQLite database (`data/ecommerce.db`), JWT authentication, order history, and loyalty rewards tracking.
+  - **Demo Shopper Login**: `demo@antigravity.ai` / `Password123!` (or 1-click "Quick Demo Login" in UI).
+
+### 3. Launch the Legacy Streamlit Dashboard (Optional)
 ```bash
 python3 -m streamlit run src/dashboard.py
 ```
-Open your browser at `http://localhost:8501` to explore association rules, benchmark curves, NLP embeddings, and the live shopping cart simulator.
+Open your browser at `http://localhost:8501`.
 
-### 3. Run the Automated Unit Test Suite
+### 4. Run the Automated Unit Test Suite
 ```bash
 python3 -m unittest discover -s tests -v
 ```
